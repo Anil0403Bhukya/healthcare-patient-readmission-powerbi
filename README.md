@@ -1,57 +1,58 @@
-# 🏥 Healthcare Patient Readmission Analysis
+# 🏥 Healthcare Patient Readmission Dashboard
 
 ### Power BI dashboard project analyzing healthcare patient readmissions using Excel-cleaned hospital data.
 
 ---
 
-## 📌 Executive Summary
-This project analyzes **4,000+ patient records** to identify the primary drivers behind hospital readmissions and appointment "No-Shows." By utilizing **SQL** for data engineering, **Excel** for risk modeling, and **Power BI** for executive reporting, this project provides a data-driven strategy to reduce operational revenue loss and improve patient outcomes.
-
----
+## 📌 Project Overview
+This project focuses on identifying patterns in **hospital readmissions** and **patient appointment no-shows**. By analyzing a dataset of 4,000+ patient records, this dashboard provides healthcare administrators with actionable insights to improve patient outcomes and reduce the financial penalties associated with high 30-day readmission rates.
 
 ## 🛠️ Tech Stack
-* **SQL:** Data cleaning, Recursive CTEs, and KPI calculations.
+* **SQL:** Data extraction, cleaning, and calculating key metrics (KPIs).
 * **MS Excel:** Risk stratification modeling and data validation.
-* **Power BI:** DAX measures, interactive visualizations, and dashboard design.
+* **Power BI:** Interactive dashboarding, DAX measures, and data storytelling.
 
 ---
 
 ## 📈 Technical Workflow
 
 ### 1. Data Engineering (SQL)
-I built a robust database of 4,000 records across departments like Cardiology and Pediatrics.
-* **Key KPI:** Developed a script to calculate the **Readmission Rate %** per department.
-* **Logic:** Used `CASE` statements to distinguish between 'Completed', 'No-Show', and 'Readmitted' statuses.
+I processed a dataset of 4,000+ records to create a reliable foundation for analysis.
+* **KPI Logic:** Wrote queries to identify "30-Day Readmissions" by comparing discharge and re-admission dates.
+* **Categorization:** Used `CASE WHEN` statements to segment patients by department (Cardiology, Pediatrics, Mental Health, General Medicine).
 
-### 2. Predictive Risk Modeling (Excel)
-I developed a **Weighted Risk Score** (0-10) to identify high-risk patients before they miss an appointment.
-* **Wait Time > 15 days:** +5 Points
-* **In-Person Visit:** +3 Points
-* **Age Factor (<18 or >75):** +2 Points
-* **Action:** Created an automated "Intervention Plan" column to trigger phone reminders for scores of 8+.
+### 2. Analytical Modeling (Excel)
+Before visualization, I developed a **Patient Risk Score** (0-10) to move from descriptive to predictive analytics.
+* **Weighting Logic:**
+    * **Wait Time > 15 Days:** +5 Points
+    * **In-Person Visit:** +3 Points
+    * **Age Vulnerability (<18 or >75):** +2 Points
+* **Result:** Created an "Action Plan" column to flag high-risk patients for proactive clinical follow-ups.
 
-### 3. Interactive Dashboard (Power BI)
-Created a high-fidelity dashboard for Hospital Administrators to monitor facility health.
-* **DAX Measures:** Created measures for `Total Patients`, `Avg Wait Time`, and `Dynamic Readmission %`.
-* **Visuals:** Included departmental heatmaps and visit-type comparison charts.
+### 3. Data Visualization (Power BI)
+Created an interactive dashboard to monitor hospital operations and clinical trends.
+* **DAX Measures:** Developed measures for `Total Patients`, `Readmission Rate %`, and `No-Show Rate`.
+* **Visuals:** * **Readmission Trend:** Line chart showing spikes in patient returns.
+    * **Risk Matrix:** Treemap highlighting the volume of patients in the "High Risk" category.
+    * **Departmental Slicers:** Allows users to filter all visuals by medical specialty.
 
 ---
 
 ## 🔍 Key Insights
-* **Wait Times:** Appointments with wait times over **14 days** saw a **22% increase** in no-shows.
-* **Telehealth Impact:** Mental Health departments using Telehealth saw **15% fewer missed appointments**.
-* **High-Risk Segment:** Patients with a risk score of **8+** accounted for nearly **60% of all readmissions**.
+* **Readmission Correlation:** Patients who missed their follow-up appointment within the first 7 days were **30% more likely** to be readmitted within 30 days.
+* **The Wait Time Factor:** Appointments booked more than **14 days** in advance showed a significant spike in "No-Shows."
+* **Departmental Trends:** The Cardiology department had the highest readmission rate, primarily among patients aged 65+.
 
 ---
 
 ## 📂 Repository Structure
-* `/SQL_Scripts`: `setup_data.sql` and `analysis_queries.sql`.
-* `/Excel_Models`: `Patient_Risk_Calculator.xlsx`.
-* `/PowerBI_Reports`: `Hospital_Operations_Dashboard.pbix`.
+* **SQL_Scripts:** `readmission_analysis.sql` (Calculates rates and cleans data).
+* **Excel_Data:** `Risk_Score_Model.xlsx` (The cleaned data and risk formulas).
+* **PowerBI_Reports:** `Healthcare_Readmission_Dashboard.pbix` (The interactive file).
 
 ---
 
 ## 🚀 How to Use
-1. Run the `setup_data.sql` script to generate the database.
-2. Load the cleaned data into Power BI.
-3. Use the slicers to filter by **Department** or **Age Group** to see specific trends.
+1. **View the Dashboard:** Open the `.pbix` file in Power BI Desktop.
+2. **Review the Data:** Check the Excel file for the "Risk Score" logic.
+3. **Run the Analysis:** Use the SQL scripts to see how the raw metrics were calculated.
