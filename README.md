@@ -1,5 +1,5 @@
-🏥 Healthcare Patient Appointment & No-Show Analysis
-📌 Executive Summary
+# 🏥 Healthcare Patient Appointment & No-Show Analysis
+Executive Summary
 This project analyzes 4,000+ patient records to identify the primary drivers behind appointment "No-Shows." In the healthcare industry, missed appointments lead to decreased clinic efficiency and significant revenue loss. By utilizing SQL for data engineering, Excel for risk modeling, and Power BI for executive reporting, this project provides a data-driven strategy to reduce no-show rates by targeting high-risk patient segments.
 
 🛠️ Technical Workflow
